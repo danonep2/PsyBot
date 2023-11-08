@@ -20,7 +20,7 @@ def verificarSessão( token ) -> bool:
 
 def firstLoginServer( request, id ):
     if request.method != 'POST':
-        return '409 - Method Error'
+        return '405 Method Not Allowed'
 
     user = Usuario.objects.get(id=id)
 
@@ -33,7 +33,7 @@ def firstLoginServer( request, id ):
 
 def loginServer( request ):
     if request.method != 'POST':
-        return '409 - Method Error'
+        return '405 Method Not Allowed'
 
     matricula = request.POST['matricula']
     senha = request.POST['senha']
