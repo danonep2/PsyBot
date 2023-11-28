@@ -9,7 +9,6 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid #000;
   }
-  
   .logo-left img {
     width: 250px; 
     right: 150px;
@@ -22,7 +21,6 @@
     min-height: calc(100vh - 160px); 
     background-color: #fff; 
   }
-  
   .login-container {
     display: flex;
     justify-content: space-between; /* Espaço entre os elementos */
@@ -30,7 +28,6 @@
     width: 70%; 
     padding: 20px;
   }
-  
   .login-box {
     display: flex;
     flex-direction: column;
@@ -40,17 +37,14 @@
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  
   .login-form {
     width: 100%; 
     margin-bottom: 20px; 
   }
-  
   .login-image img {
     width: 100%; 
     max-width: 300px; /* Definir largura máxima conforme necessário */
   }
-  
   .login-form input[type="text"],
   .login-form input[type="password"],
   .login-form button {
@@ -66,7 +60,6 @@
     color: #fff;
     cursor: pointer;
   }
-  
   footer {
     background-color: #000;
     padding: 20px;

@@ -1,16 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Agendamentos de Consultas</title>
+  <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <form action="{% url 'loginServer' %}" method="POST">
-        {% csrf_token %}
-        <input type="text" name="matricula" title="matricula"></br>
-        <input type="password" name="senha" title="senha"></br>
-        <input type="submit"></br>
-    </form>
+  <header class="header">
+    <div class="logo-left">
+      <img src="imagem/image 1.png" alt="Logo Esquerda">
+    </div>
+    <h1>Sistema de Agendamentos de Consultas</h1>
+  </header>
+  <div class="content">
+    <div class="login-container">
+      <div class="login-box">
+        <div class="login-form">
+          <h3>LOGIN IFPI</h3>
+          <form action="{% url 'loginServer' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="matricula" placeholder="matricula"></br>
+            <input type="password" name="senha" placeholder="senha"></br>
+            <button type="submit">Login</button>
+        </form>
+          <a href="#">Esqueceu a senha?</a>
+        </div>
+      </div>
+      <div class="login-image">
+        <img src="imagem/image 2.png" alt="Segunda Imagem">
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Instituto Federal do Piauí</p>
+  </footer>
 </body>
 </html>
