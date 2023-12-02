@@ -1,4 +1,4 @@
 from .controllers.login import loginServer
 from .controllers.firstLogin import firstLoginServer
 from .controllers.initialRoute import initialRoute
-from .controllers.dashboard import dashboardServer
+from .controllers.logout import logoutServer

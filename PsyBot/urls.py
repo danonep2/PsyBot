@@ -24,7 +24,7 @@ urlsServer = [
     path('admin/', admin.site.urls),
     path('first-loginServer/', firstLoginServer, name='firstLoginServer'),
     path('loginServer/', loginServer, name='loginServer'),
-    path('dashboardServer/', dashboardServer, name='dashboardServer')
+    path('logoutServer/', logoutServer, name='logout')
 ]
 urlsWeb = [
     path('login/', login, name='login'),
