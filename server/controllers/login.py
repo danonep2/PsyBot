@@ -33,7 +33,10 @@ def loginServer( request ):
 
         sessao.save()
 
-        return HttpResponseRedirect('/login')
+        response = HttpResponseRedirect('/')
+        response.set_cookie('token', novoToken)
+
+        return response
 
     except:
         return HttpResponseRedirect('/login')

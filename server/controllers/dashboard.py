@@ -1,16 +1,12 @@
-from django.shortcuts import HttpResponseRedirect, HttpResponse
-from django.utils import timezone
+from django.shortcuts import HttpResponseRedirect, render
 from server.utils.verificaSessao import verificarSessao
-from server.models import Sessao
 
-def initialRoute(request):
+def dashboardServer( request ):
     tokenCookie = request.COOKIES.get('token', 'null')
 
     isTokenValid = verificarSessao(tokenCookie)
 
     if not isTokenValid:
         return HttpResponseRedirect('/login')
-    
-    return HttpResponseRedirect('/dashboard')
-    
 
+    return render(request, 'dashboard.html')
