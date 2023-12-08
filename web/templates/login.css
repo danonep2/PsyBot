@@ -33,7 +33,7 @@
     flex-direction: column;
     align-items: center;
     max-width: 60%; /* Ajusta a largura máxima conforme necessário */
-    padding: 20px;
+    padding: 40px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
@@ -41,6 +41,7 @@
     width: 100%; 
     margin-bottom: 20px; 
   }
+  
   .login-image img {
     width: 100%; 
     max-width: 300px; /* Definir largura máxima conforme necessário */
@@ -54,9 +55,13 @@
     border: 1px solid #ccc;
     border-radius: 5px;
   }
+
+  .esqueceu {
+    color: #2F9E41;
+  }
   
   .login-form button {
-    background-color: #4caf50;
+    background-color: #2F9E41;
     color: #fff;
     cursor: pointer;
   }

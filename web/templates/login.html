@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sistema de Agendamentos de Consultas</title>
   <link rel="stylesheet" href="login.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 </head>
+
 <body>
   <header class="header">
     <div class="logo-left">
@@ -13,18 +16,22 @@
     </div>
     <h1>Sistema de Agendamentos de Consultas</h1>
   </header>
-  <div class="content">
+
+  <div class="content" class="form-floating mb-3" class="form-floating">
     <div class="login-container">
       <div class="login-box">
         <div class="login-form">
           <h3>LOGIN IFPI</h3>
           <form action="{% url 'loginServer' %}" method="POST">
-            {% csrf_token %}
-            <input type="text" name="matricula" placeholder="matricula"></br>
-            <input type="password" name="senha" placeholder="senha"></br>
-            <button type="submit">Login</button>
+            
+            <label for="usuario"> <strong> Usuário: </strong> <br>
+            <input type="email" class="form-control" name="matricula" placeholder="aluno@example.com"></br>
+            <label for="senha"> <strong> Senha: </strong> <br>
+            <input type="password" class="form-control" id="floatingPassword" name="senha" placeholder="senha"></br>
+            <button type="button" class="btn btn-success"> <a> Acessar </a></button>
         </form>
-          <a href="#">Esqueceu a senha?</a>
+        
+          <a class="esqueceu" href="#"> <strong> Esqueceu a senha? </strong></a>
         </div>
       </div>
       <div class="login-image">
