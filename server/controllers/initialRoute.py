@@ -9,7 +9,9 @@ def initialRoute(request):
     isTokenValid = verificarSessao(tokenCookie)
 
     if not isTokenValid:
-        return HttpResponseRedirect('/login')
+        response  = HttpResponseRedirect('/login')
+        response.delete_cookie('token')
+        return response
     
     return HttpResponseRedirect('/dashboard')
     
