@@ -18,7 +18,9 @@
     color: white;
     padding-top: 20px;
   }
-  
+  h2{
+    text-align: center;
+  }
   .sidebar ul {
     list-style-type: none;
     padding: 0;
@@ -51,21 +53,27 @@
   }
   
   /* Estilos do conteúdo principal */
-  .main-content {
-    margin-left: 231px; 
-    padding: 20px;
-  }
-  
-  .header2 {
-    background-color: #2F9E41;
-    padding: 40px;
-    margin-bottom: 20px;
-    text-align: center;
-    border-bottom: 1px solid #000;
-    width: 100%;
-    box-sizing: border-box;
-    position: absolut;
-  }
+
+.main-content {
+  margin-left: 231px;
+  padding-top: 110px; /* Ajuste o padding para criar um espaço para o cabeçalho */
+  padding-left: 20px; /* Exemplo de ajuste no padding lateral */
+  padding-right: 30px; /* Exemplo de ajuste no padding lateral */
+}
+
+.header2 {
+  background-color: #2F9E41;
+  padding: 35px;
+  margin: 0;
+  text-align: center;
+  border-bottom: 1px solid #000;
+  width: calc(100% - 250px); /* Ajuste para a largura ocupada pelo menu lateral */
+  box-sizing: border-box;
+  position: fixed; /* Mantenha o cabeçalho fixo */
+  top: 0;
+  z-index: 1000;
+}
+
   
   .about-section,
   .department-info {
@@ -141,7 +149,7 @@
   .nav { 
     float: left;
     width: 15%;
-    height: 80%%; 
+    height: 80%; 
     background: #292929;
     padding: 140px;
   }
