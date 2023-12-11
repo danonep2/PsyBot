@@ -55,8 +55,8 @@
   /* Estilos do conteúdo principal */
 
 .main-content {
-  margin-left: 231px;
-  padding-top: 75px; /* Ajuste o padding para criar um espaço para o cabeçalho */
+  margin-left: 230px;
+  padding-top: 110px; /* Ajuste o padding para criar um espaço para o cabeçalho */
   padding-left: 20px; /* Exemplo de ajuste no padding lateral */
   padding-right: 30px; /* Exemplo de ajuste no padding lateral */
 }
@@ -67,11 +67,10 @@
   margin: 0;
   text-align: center;
   border-bottom: 1px solid #000;
-  width: calc(100% - 231px); /* Ajuste para a largura ocupada pelo menu lateral */
+  width: calc(100% - 250px); /* Ajuste para a largura ocupada pelo menu lateral */
   box-sizing: border-box;
-  position: absolute; /* Mantenha o cabeçalho fixo */
+  position: fixed; /* Mantenha o cabeçalho fixo */
   top: 0;
-  left: 231px; /* Ajuste para o menu lateral */
   z-index: 1000;
 }
 
@@ -150,7 +149,7 @@
   .nav { 
     float: left;
     width: 15%;
-    height: 80%%; 
+    height: 80%; 
     background: #292929;
     padding: 140px;
   }
