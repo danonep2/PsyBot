@@ -18,6 +18,7 @@
     color: white;
     padding-top: 20px;
   }
+  h1{color: white;}
   h2{
     text-align: center;
   }
@@ -44,7 +45,6 @@
     flex-direction: column;
     margin-bottom: 20px;
   }
-  
   .user-info img {
     width: 60px;
     height: 60px;
@@ -53,7 +53,6 @@
   }
   
   /* Estilos do conteúdo principal */
-
 .main-content {
   margin-left: 231px;
   padding-top: 110px; /* Ajuste o padding para criar um espaço para o cabeçalho */
@@ -72,9 +71,7 @@
   position: fixed; /* Mantenha o cabeçalho fixo */
   top: 0;
   z-index: 1000;
-}
-
-  
+} 
   .about-section,
   .department-info {
     border: 2px solid #000;
@@ -89,12 +86,10 @@
   .input-box {
     margin-bottom: 20px;
   }
-  
   .input-box label {
     display: block;
     margin-bottom: 10px;
   }
-  
   .input-box input,
   .input-box textarea {
     width: 100%;
@@ -104,7 +99,6 @@
     border-radius: 5px;
     resize: vertical; /* Permitir redimensionamento vertical do textarea */
   }
-  
   .enviar-btn {
     background-color: green;
     color: white;
@@ -116,8 +110,6 @@
   .enviar-btn:hover {
     background-color: #45a049;
   }
-
-
 
   /*Horarios */
   table {
@@ -136,9 +128,6 @@
     color: #fff;
     font-size: 30px;
   }
-
-
-
   /* Dashboard.html */
   .headash {
     background-color: #2F9E41;
@@ -146,7 +135,6 @@
     padding: 5px;
     color: white;
   }
-
   .nav { 
     float: left;
     width: 15%;
@@ -154,4 +142,28 @@
     background: #292929;
     padding: 140px;
   }
-
+/*historico_psi*/
+  .history-item {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin-bottom: 25px; /* Espaçamento entre os itens */
+    border-bottom: 2px solid #ccc; /* Linha divisória entre os itens */
+    padding-bottom: 25px; /* Espaçamento na parte inferior de cada item */
+  }
+  .student-img {
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px; /* Espaço entre a imagem e os dados */
+  }
+.history-details {
+display: flex; 
+align-items: center; /* Alinha verticalmente os itens */
+gap: 10px; /* Espaço entre os itens */
+}
+.history-details p {
+font-size: 26px;
+margin-bottom: 10px;
+margin-right: 35px;/* Espaçamento entre os detalhes*/
+}
