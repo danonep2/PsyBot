@@ -77,11 +77,12 @@
   
   .about-section,
   .department-info {
-    border: 1px solid #000;
+    border: 2px solid #000;
     background-color: white;
     color: black;
     padding: 80px;
-    margin-bottom: 40px;
+    margin: 0px 20px 40px 20px;
+    border-radius: 10px;
   }
   
   /* Suporte */ 

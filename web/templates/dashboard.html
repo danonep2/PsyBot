@@ -1,10 +1,12 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
 </head>
 <body>
@@ -17,6 +19,7 @@
       <img src="" alt="Avatar do Usuário">
       <span>Nome do Usuário</span><br><br>
     </div>
+
     <ul>
       <li><a href="dashboard.html"><h2>Início</h2></a></li><br>
       <li><a href="horarios.html"><h2>Horários</h2></a></li><br>
@@ -28,23 +31,23 @@
 
 <div class="main-content">
     <header class="header2">
-      <h1>Dashboard</h1>
+      <h1 style="color:white;"> Dashboard</h1>
     </header><br><br>
 
-    <h2>Próximas Consultas</h2>
+    <h2> Próximas Consultas: </h2>
     <section class="about-section">
-      <p>Sem Consultas</p>
+      <p> <center> Sem Consultas </center> </p>
       
     </section>
-<h2>Algumas Informações</h2>
-    <section class="about-section">
-        <p>Sem Consultas</p>
-     
+    <h2> Algumas Informações: </h2>
+    <section class="about-section ">
+      <p> <center> Sem Consultas </center> </p>
+    
     </section>
 
-=======
+{% comment %} =======
     <a href="{% url 'logout' %}">Logout</a>
 >>>>>>> 9a4ed29cc5d14996f0c09f769954272e67ad6aa8
->>>>>>> Stashed changes
+>>>>>>> Stashed changes {% endcomment %}
 </body>
 </html>
