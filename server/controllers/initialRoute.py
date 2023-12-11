@@ -1,5 +1,4 @@
 from django.shortcuts import HttpResponseRedirect, HttpResponse
-from django.utils import timezone
 from server.utils.verificaSessao import verificarSessao
 from server.models import Sessao
 

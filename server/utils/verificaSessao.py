@@ -4,6 +4,9 @@ from django.utils import timezone
 
 def verificarSessao( token ):
     try:
+        if token is None:
+            return False
+        
         sessao = Sessao.objects.get(token=token)
         dataAtual = timezone.now().date()
         
