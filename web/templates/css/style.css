@@ -117,27 +117,30 @@
     background-color: #45a049;
   }
 
-
+-----------------------------------------------------------------------------------------
 
   /*Horarios */
   table {
-    width: 100%;
+    width: 110%;
     border-collapse: collapse;
+    
   }
-  th,
-  td {
-    border: 2px solid black;
-    padding: 40px;
+
+  th, td {
+    border-style: solid;
+    border: 1px solid black;
+    padding: 30px;
     text-align: center;
-    font-size: 20px;
+    font-size: 22px;
   }
+
   th {
-    background-color: green;
+    background-color: #2F9E41;
     color: #fff;
     font-size: 30px;
   }
 
-
+-----------------------------------------------------------------------------------
 
   /* Dashboard.html */
   .headash {
