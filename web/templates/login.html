@@ -24,13 +24,14 @@
       <div class="login-box">
         <div class="login-form">
           <h3>LOGIN IFPI</h3>
-          <form action="{% url 'loginServer' %}" method="POST">
+          <form action="{% url 'auth' %}" method="POST">
             {% csrf_token %}
             
-            <label for="usuario"> <strong> Usuário: </strong> <br>
+            <label for="usuario"> <strong> Usuário: </strong> <br></label>
             <input type="text" class="form-control" name="matricula" placeholder="matricula"></br>
-            <label for="senha"> <strong> Senha: </strong> <br>
+            <label for="senha"> <strong> Senha: </strong> <br></label>
             <input type="password" class="form-control" id="floatingPassword" name="senha" placeholder="senha"></br>
+            {{ error|safe }}
             <button type="submit" class="btn btn-success"> <a> Acessar </a></button>
         </form>
         

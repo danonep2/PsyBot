@@ -14,8 +14,11 @@ days_of_week = {
 }
 
 # Create your views here.
-def login( request ):
-    return render(request, 'login.html')
+def login( request):
+    error = request.session.pop('error_message', "")
+    print('error: ', error)
+
+    return render(request, 'login.html', {'error': error})
 
 def dashboard( request ):
     cookie = request.COOKIES.get('token', None)

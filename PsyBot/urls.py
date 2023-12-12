@@ -23,8 +23,8 @@ urlsServer = [
     path('', initialRoute, name='initialRoute'),
     path('admin/', admin.site.urls),
     path('first-loginServer/', firstLoginServer, name='firstLoginServer'),
-    path('loginServer/', loginServer, name='loginServer'),
-    path('logoutServer/', logoutServer, name='logout')
+    path('auth/', auth, name='auth'),
+    path('logout/', logoutServer, name='logout')
 ]
 urlsWeb = [
     path('login/', login, name='login'),
