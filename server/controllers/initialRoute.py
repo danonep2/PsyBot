@@ -12,12 +12,6 @@ def initialRoute(request):
         response.delete_cookie('token')
         return response
     
-    # Coletando senha do usuário do formalario
-    senha = request.POST['senha']
-
-    #alterando a senha do usuário
-    sessao = Sessao.objects.get(token=tokenCookie)
-    sessao.usuario.senha = senha
-    sessao.usuario.save()
+    # Coletando senha do usuário do formalario0
 
     return HttpResponseRedirect('/dashboard')
