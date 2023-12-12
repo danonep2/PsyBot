@@ -74,7 +74,6 @@
   z-index: 1000;
 }
 
-  
   .about-section,
   .department-info {
     border: 2px solid #000;
@@ -82,6 +81,28 @@
     color: black;
     padding: 80px;
     margin: 0px 20px 40px 20px;
+    border-radius: 10px;
+  }
+  .about-section {
+    max-width: 1200px;
+    max-height: 200px;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  
+  .about-section p {
+    padding: 10px;
+    color: #2F9E41;
+  }
+  
+  .about-section::-webkit-scrollbar {
+    width: 10px;
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  .about-section::-webkit-scrollbar-thumb {
+    background-color: #2F9E41;
     border-radius: 10px;
   }
   
@@ -117,16 +138,17 @@
     background-color: #45a049;
   }
 
------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 
   /*Horarios */
   table {
-    width: 110%;
+    width: 200%;
     border-collapse: collapse;
     
   }
 
-  th, td {
+  th,
+  td {
     border-style: solid;
     border: 1px solid black;
     padding: 30px;
@@ -158,3 +180,14 @@
     padding: 140px;
   }
 
+  .botao {
+    background-color: #2F9E41;
+    border-radius: 10px 10px 10px 10px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    }
+  
