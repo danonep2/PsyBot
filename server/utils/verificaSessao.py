@@ -14,7 +14,7 @@ def verificarSessao( token ):
             Sessao.objects.get(id=sessao.id).delete()
             return False
 
-        return True
+        return sessao.usuario
 
     except:
         return False

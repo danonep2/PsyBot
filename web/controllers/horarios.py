@@ -21,6 +21,8 @@ def horarios( request ):
 
     if not isTokenValid:
         return HttpResponseRedirect(request, 'login.html')
+    
+    usuario = isTokenValid
 
     currentDay = timezone.now().date().strftime('%A')
     dayOfWeek = days_of_week[currentDay]
@@ -62,7 +64,7 @@ def horarios( request ):
 
     createConsultEl = '''
         <td class="livre">
-            <a href="/criar-consulta?dayOfWeek={}&hour={}">
+            <a onclick="window.confirm('Deseja confirmar consulta?')" href="/criar-consulta?dayOfWeek={}&hour={}">
                     Livre
             </a>
         </td>
@@ -74,12 +76,17 @@ def horarios( request ):
         for j in range(0, 5):
             if finalData[j][i] is None:
                 table += createConsultEl.format(j + 1, i + 8)
+            elif finalData[j][i].usuario == usuario:
+                table += '<td class="minha-consulta" style="color: green;text-decoration: line">Sua consulta</td>'
             else:
                 table += '<td class="ocupado">Ocupado</td>'
         table += '</tr>'
 
+    msg = request.session.pop('msg_horario', "")
+
     data = {
-        'table' : table
+        'table' : table,
+        'msg' : msg
     }
 
     return render(request, 'horarios.html', data)

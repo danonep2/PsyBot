@@ -18,5 +18,18 @@ def dashboard( request ):
 
     if not isTokenValid:
         return HttpResponseRedirect(request, 'login.html')
+    
+    usuario = isTokenValid
 
-    return render(request, 'dashboard.html')
+    try:
+        consulta = Cosultas.objects.get(usuario=usuario, pendente=True)
+        data = {
+            'proxima_consulta':  f'<p> <center> Proxima consulta: {consulta.data} as {consulta.horario}h </center> </p>'
+        }
+
+    except:
+        data ={
+            'proxima_consulta':'<p> <center> Sem Consultas </center> </p>'
+        }
+
+    return render(request, 'dashboard.html', data)
