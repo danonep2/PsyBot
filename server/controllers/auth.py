@@ -3,7 +3,6 @@ import random
 from datetime import timedelta
 from django.utils import timezone
 from django.shortcuts import HttpResponseRedirect, redirect
-from django.urls import reverse
 
 from server.models import Usuario, Sessao
 
@@ -19,6 +18,9 @@ def auth( request ):
 
     try:
         user = Usuario.objects.get(matricula=matricula, senha=senha)
+
+        if senha == 'Aluno@ifpi':
+            return HttpResponseRedirect('/primeiro-login')
 
         sessao = Sessao()
 
