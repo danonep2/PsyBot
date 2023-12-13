@@ -13,8 +13,7 @@ def login( request):
     return render(request, 'login.html', {'error': error})
 
 def dashboard( request ):
-    cookie = request.COOKIES.get('token', None)
-    isTokenValid = verificarSessao(cookie)
+    isTokenValid = verificarSessao(request)
 
     if not isTokenValid:
         return HttpResponseRedirect(request, 'login.html')
@@ -24,12 +23,14 @@ def dashboard( request ):
     try:
         consulta = Cosultas.objects.get(usuario=usuario, pendente=True)
         data = {
-            'proxima_consulta':  f'<p> <center> Proxima consulta: {consulta.data} as {consulta.horario}h </center> </p>'
+            'proxima_consulta':  f'<p> <center> Proxima consulta: {consulta.data} as {consulta.horario}h </center> </p>',
+            'user': usuario.nome
         }
 
     except:
         data ={
-            'proxima_consulta':'<p> <center> Sem Consultas </center> </p>'
+            'proxima_consulta':'<p> <center> Sem Consultas </center> </p>',
+            'user': usuario.nome.split(' ')[0]
         }
 
     return render(request, 'dashboard.html', data)

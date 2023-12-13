@@ -5,13 +5,16 @@ from server.models import Cosultas
 from server.utils.verificaSessao import verificarSessao
 
 def criarConsulta(request):
-    token = request.COOKIES.get('token')
-    isTokenValid = verificarSessao(token)
+    isTokenValid = verificarSessao(request)
 
     if not isTokenValid:
         return HttpResponseRedirect(request, 'login.html')
     
     usuario = isTokenValid
+
+    if usuario.tipo == 'psicologa':
+        request.session['msg_horario'] = '<center><p style="color: red">Você não pode marcar consulta!</p></center>'
+        return HttpResponseRedirect('/horarios')
 
     # Verificar se o usuario ja tem consulta
     consultas = Cosultas.objects.filter(usuario=usuario)

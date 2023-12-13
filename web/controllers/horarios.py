@@ -1,4 +1,3 @@
-
 from server.utils.verificaSessao import verificarSessao
 from django.shortcuts import HttpResponseRedirect, render
 from django.utils import timezone
@@ -14,10 +13,8 @@ days_of_week = {
     'Saturday': 7,
 }
 
-
 def horarios( request ):
-    token = request.COOKIES.get('token')
-    isTokenValid = verificarSessao(token)
+    isTokenValid = verificarSessao(request)
 
     if not isTokenValid:
         return HttpResponseRedirect(request, 'login.html')
@@ -47,7 +44,6 @@ def horarios( request ):
                  [None, None, None, None], #quarta
                  [None, None, None, None], #quinta
                  [None, None, None, None]] #sexta
-    
 
     for consult in consultQuery:
         if 8 <= consult.horario <= 11:
@@ -64,7 +60,7 @@ def horarios( request ):
 
     createConsultEl = '''
         <td class="livre">
-            <a onclick="window.confirm('Deseja confirmar consulta?')" href="/criar-consulta?dayOfWeek={}&hour={}">
+            <a onclick="confirmarCriacao({},{})" href="#">
                     Livre
             </a>
         </td>
@@ -74,10 +70,18 @@ def horarios( request ):
         table += '<tr>'
         table += '<td>' + hours[i] + '</td>'
         for j in range(0, 5):
-            if finalData[j][i] is None:
+            if usuario.tipo == 'psicologa' and finalData[j][i] is not None:
+                table += f'<td class="ocupado">{finalData[j][i].usuario.nome.split()[0]}</td>'
+
+            elif finalData[j][i] is None and usuario.tipo == 'psicologa':
+                table += '<td class="livre"><a href="#">Livre</a></td>'
+
+            elif finalData[j][i] is None:
                 table += createConsultEl.format(j + 1, i + 8)
+
             elif finalData[j][i].usuario == usuario:
-                table += '<td class="minha-consulta" style="color: green;text-decoration: line">Sua consulta</td>'
+                table += '<td class="minha-consulta" style="color: green">Sua consulta</td>'
+
             else:
                 table += '<td class="ocupado">Ocupado</td>'
         table += '</tr>'
@@ -86,7 +90,8 @@ def horarios( request ):
 
     data = {
         'table' : table,
-        'msg' : msg
+        'msg' : msg,
+        'usuario' : usuario.nome.split()[0],
     }
 
     return render(request, 'horarios.html', data)

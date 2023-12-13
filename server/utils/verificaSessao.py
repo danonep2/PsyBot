@@ -2,8 +2,9 @@ from server.models import Sessao
 from django.utils import timezone
 
 
-def verificarSessao( token ):
+def verificarSessao( request ):
     try:
+        token = request.COOKIES.get('token')
         if token is None:
             return False
         
