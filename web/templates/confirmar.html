@@ -1,11 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Confirmar Consulta </title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
 		integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
 		crossorigin="anonymous"></script>
@@ -15,63 +17,75 @@
 		integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
 		crossorigin="anonymous"></script>
 </head>
-<body>
-	<<<<<<< HEAD
-			<div class="sidebar">
-			<div class="user-info">
-					<img src="" alt="Avatar do Usuário">
-					<span>Nome do Usuário</span><br><br>
-			</div>
 
-			<ul>
-					<li><a href="#"><h2>Início</h2></a></li><br>
-					<li><a href="#"><h2>Horários</h2></a></li><br>
-					<li><a href="#"><h2>Histórico</h2></a></li><br>
-                    <li><a href="{% url 'logout' %}"> <h2> Sair <h2></a></li>
-			</ul>
+<body>
+	<div class="sidebar">
+		<div class="user-info">
+			<img src="{% static '/imagens/user.png' %}" alt="Avatar do Usuário">
+			<span>{{user}}</span><br><br>
+		</div>
+
+		<ul>
+			<li><a href="{% url 'dashboard'%}">
+					<h2>Início</h2>
+				</a></li><br>
+			<li><a href="{% url 'horarios' %}">
+					<h2>Horários</h2>
+				</a></li><br>
+			<li><a href="#">
+					<h2>Histórico</h2>
+				</a></li><br>
+			<li><a href="{% url 'logout' %}">
+					<h2> Sair <h2>
+				</a></li>
+		</ul>
 	</div>
-		<div class="main-content">
-				<header class="header2">
-						<h1 style="color:white;"> Confirmar Consulta </h1>
-				</header><br><br>
+	<div class="main-content">
+		<header class="header2">
+			<h1 style="color:white;"> Confirmar Consulta </h1>
+		</header><br><br>
 		<br>
 
-			<h2> <strong> <center> Confirmar Consulta </center> </strong></h2>
-			<h3><strong> <center> Aluno: Fulano </center></strong></h3> <br>
+		<h2> <strong>
+				<center> Confirmar Consulta </center>
+			</strong></h2>
+		<h3><strong>
+				<center> Aluno: {{nomeAluno}} </center>
+			</strong></h3> <br>
 
-			<div class="central">
+		<div class="central">
 			<h4> * Paciente esteve presente? </h4>
-			<form>
-			<div class="form-check">
-				<input class="form-check-input" type="radio" id="sim" name="presente" value="sim">
-				<label class="form-check-label" for="sim" class="form-check-label"> Sim </label> 
-			</div>
+			<form method="post" action="{% url 'confirmarConsulta'%}">
+				{% csrf_token %}
+				<input type="hidden" name="id" value="{{idConsulta}}">
+				<div class="form-check">
+					<input class="form-check-input" type="radio" id="sim" name="presente" value="True">
+					<label class="form-check-label" for="sim" class="form-check-label"> Sim </label>
+				</div>
 
-			<div class="form-check">
-				<input class="form-check-input"  type="radio" id="nao" name="presente" value="nao">
-				<label class="form-check-label" for="nao" class="form-check-label"> Não </label><br>
-			</div>
-			</form>
-			</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" id="nao" name="presente" value="False">
+					<label class="form-check-label" for="nao" class="form-check-label"> Não </label><br>
+				</div>
+				
 			
-			<div class="central">
-			<h4> * Paciente precisa Remarcar consulta? </h4>
-			<form>
-			<div class="form-check">
-				<input class="form-check-input" type="radio" id="sim" name="presente" value="sim">
-				<label class="form-check-label" for="sim" class="form-check-label"> Sim </label> 
-			</div>
+				<h4> * Paciente precisa Remarcar consulta? </h4>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" id="sim" name="remarcar" value="True">
+					<label class="form-check-label" for="sim" class="form-check-label"> Sim </label>
+				</div>
 
-			<div class="form-check">
-				<input class="form-check-input"  type="radio" id="nao" name="presente" value="nao">
-				<label class="form-check-label" for="nao" class="form-check-label"> Não </label><br>
-			</div>
-			</form>
-			</div>
+				<div class="form-check">
+					<input class="form-check-input" type="radio" id="nao" name="remarcar" value="False">
+					<label class="form-check-label" for="nao" class="form-check-label"> Não </label><br>
+				</div>
 
-			<div class="central">
-			<h3> Descrição sobre o paciente: </h3>
-			<textarea id="descricao" name="descricao" rows="4" cols="90"> </textarea>
-			</div>
+				<div class="central">
+					<h3> Descrição sobre o paciente: </h3>
+					<textarea id="desc" name="desc" rows="4" cols="90"> </textarea>
+				</div>
+				<button type="submit" class="btn btn-success"> <a> Confirmar consulta </a></button>
+		</form>
 </body>
+
 </html>

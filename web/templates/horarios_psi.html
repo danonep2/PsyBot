@@ -13,19 +13,15 @@
 
 </head>
 <body>
-  <<<<<<< Updated upstream
-    <a href="{% url 'logout' %}">Logout</a>
-=======
-<<<<<<< HEAD
     <div class="sidebar">
     <div class="user-info">
-        <img src="" alt="Avatar do Usuário">
-        <span>Nome do Usuário</span><br><br>
+        <img src="{% static '/imagens/user.png' %}" alt="Avatar do Usuário">
+        <span>{{ user }}</span><br><br>
     </div>
 
     <ul>
-        <li><a href="#"><h2>Início</h2></a></li><br>
-        <li><a href="{% url 'horarios_psi' %}"><h2>Horários</h2></a></li><br>
+        <li><a href="{% url 'dashboard'%}"><h2>Início</h2></a></li><br>
+        <li><a href="{% url 'horarios' %}"><h2>Horários</h2></a></li><br>
         <li><a href="#"><h2>Histórico</h2></a></li><br>
         <li><a href="{% url 'logout' %}"> <h2> Sair <h2></a></li>
     </ul>
@@ -47,40 +43,7 @@
           <th>Sexta</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>8h</td>
-          <td>Livre</td>
-          <td></td>
-          <td>Ocupado</td>
-          <td></td>
-          <td>Livre</td>
-        </tr>
-        <tr>
-          <td>9h</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>10h</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>11h</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>  
-
+      {{table|safe}} 
+    </table>
 </body>
 </html>

@@ -94,4 +94,7 @@ def horarios( request ):
         'user' : usuario.nome.split()[0],
     }
 
+    if usuario.tipo == 'psicologa':
+        return render(request, 'horarios_psi.html', data)
+
     return render(request, 'horarios.html', data)

@@ -15,25 +15,31 @@ def confirmarConsulta( request ):
         return HttpResponseRedirect(request, 'dashboard.html')
 
     idConsulta = int(request.POST['id'])
-    remarcar = bool(request.POST['remarcar'])
-    presente = bool(request.POST['presente'])
+    remarcar = request.POST['remarcar']
+    presente = request.POST['presente']
     desc = request.POST['desc']
 
     consulta = Cosultas.objects.get(id=idConsulta)
     consulta.pendente = False
     consulta.descricao = desc
-    consulta.presente = presente
+    consulta.estevePresente = bool(presente)
+    consulta.save()
 
     usuario = consulta.usuario
-    numeroConsulta = usuario.numeroConsultas
+    numeroConsulta = consulta.numeroConsulta
 
-    if remarcar:
+    if remarcar == "True":
         novaConsulta = Cosultas()
         novaConsulta.usuario = usuario
         novaConsulta.data = consulta.data + timezone.timedelta(days=7)
+        novaConsulta.horario = consulta.horario
+        novaConsulta.pendente = True
+        novaConsulta.numeroConsulta = numeroConsulta 
 
         if presente:
-            novaConsulta.numeroConsulta += numeroConsulta + 1
+            novaConsulta.numeroConsulta += 1
     
-    return HttpResponseRedirect('dashboard')
+        novaConsulta.save()
+
+    return HttpResponseRedirect('/dashboard')
 
