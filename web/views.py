@@ -34,3 +34,37 @@ def dashboard( request ):
         }
 
     return render(request, 'dashboard.html', data)
+
+
+def sobre( request ):
+    isTokenValid = verificarSessao(request)
+
+    user = isTokenValid
+
+    data = {
+        'user': user.nome.split(' ')[0]
+    }
+
+    if not isTokenValid:
+        return HttpResponseRedirect(request, 'login.html')
+    
+    return render(request, 'sobre.html', data)
+
+def suporte( request ):
+    isTokenValid = verificarSessao(request)
+    
+    user = isTokenValid
+
+    data = {
+        'user': user.nome.split(' ')[0]
+    }
+
+    if not isTokenValid:
+        return HttpResponseRedirect(request, 'login.html')
+    
+    return render(request, 'suporte.html', data)
+
+def confirmar( request ):
+    isTokenValid = verificarSessao(request)
+
+    user = isTokenValid

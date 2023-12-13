@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -18,14 +19,14 @@
 
   <div class="sidebar">
     <div class="user-info">
-      <img src="" alt="Avatar do Usuário">
-      <span>Nome do Usuário</span><br><br>
+      <img src="{% static '/imagens/user.png' %}" alt="Avatar do Usuário">
+      <span>{{user}}</span><br><br>
     </div>
     <ul>
-      <li><a href="dashboard.html"><h2>Início</h2></a></li><br>
-      <li><a href="horarios.html"><h2>Horários</h2></a></li><br>
-      <li><a href="sobre.html"><h2>Sobre</h2></a></li><br>
-      <li><a href=""><h2>Suporte</h2></a></li><br>
+      <li><a href="{% url 'dashboard' %}"><h2>Início</h2></a></li><br>
+      <li><a href="{% url 'horarios' %}"><h2>Horários</h2></a></li><br>
+      <li><a href="{% url 'sobre' %}"><h2>Sobre</h2></a></li><br>
+      <li><a href="{% url 'suporte' %}"><h2>Suporte</h2></a></li><br>
       <li><a href="#"><h2>Histórico</h2></a></li><br>
     </ul>
   </div>

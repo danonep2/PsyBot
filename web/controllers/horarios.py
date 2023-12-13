@@ -91,7 +91,7 @@ def horarios( request ):
     data = {
         'table' : table,
         'msg' : msg,
-        'usuario' : usuario.nome.split()[0],
+        'user' : usuario.nome.split()[0],
     }
 
     return render(request, 'horarios.html', data)
