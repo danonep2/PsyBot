@@ -18,10 +18,6 @@ def auth( request ):
 
     try:
         user = Usuario.objects.get(matricula=matricula, senha=senha)
-
-        if senha == 'Aluno@ifpi':
-            return HttpResponseRedirect('/primeiro-login')
-
         sessao = Sessao()
 
         novoToken = random_generator()
@@ -36,9 +32,13 @@ def auth( request ):
 
         sessao.save()
 
-        response = HttpResponseRedirect('/')
-        response.set_cookie('token', novoToken)
+        if senha == 'Aluno@ifpi':
+            response = HttpResponseRedirect('/primeiro-login')
+            response.set_cookie('token', novoToken)
+            return response
 
+        response.set_cookie('token', novoToken)
+        response = HttpResponseRedirect('/')
         return response
 
     except:

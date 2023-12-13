@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -19,7 +20,7 @@
     <div class="login-boxx border col-md-6 mx-auto">
       <div class="login-form">
         <h3>Primeiro Login</h3>
-        <form action="#" method="POST">
+        <form action="{% url 'firstLoginServer'%}" method="POST">
           {% csrf_token %}
           <div class="form-group">
             <label for="senha">Senha:</label>

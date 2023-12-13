@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from server.views import *
-from web.views import login, dashboard, horarios, sobre, suporte, confirmar
+from web.views import login, dashboard, horarios, sobre, suporte, confirmar, primeiroLogin
 from django.urls import path
 
 urlsServer = [
@@ -34,7 +34,8 @@ urlsWeb = [
     path('horarios/', horarios, name='horarios'),
     path('sobre/', sobre, name='sobre'),
     path('suporte/', suporte, name='suporte'),
-    path('confirmar/<int:id>', confirmar, name='confirmar')
+    path('confirmar/<int:id>', confirmar, name='confirmar'),
+    path('primeiro-login/', primeiroLogin, name='primeiroLogin')
 ]
 
 urlpatterns = urlsServer + urlsWeb

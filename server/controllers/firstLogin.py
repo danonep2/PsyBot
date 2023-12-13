@@ -1,16 +1,28 @@
 from django.shortcuts import HttpResponseRedirect
+from server.utils.verificaSessao import verificarSessao
 
 from server.models import Usuario
 
-def firstLoginServer( request, id ):
+def firstLoginServer( request ):
     if request.method != 'POST':
         return '405 Method Not Allowed'
+    
+    isTokenValid = verificarSessao(request)
 
-    user = Usuario.objects.get(id=id)
+    if not isTokenValid:
+        return HttpResponseRedirect('/login')
 
-    user.senha = request.POST['senha']
-    user.telefone = request.POST['telefone']
+    user = isTokenValid
+
+    senha = request.POST['senha']
+    confirmar_senha = request.POST['confirmar_senha']
+    
+    if senha != confirmar_senha:
+        request.session['error_message'] = '<p style="color: red;"> Senhas não coincidem </p>'
+        return HttpResponseRedirect("/primeiro-login")
+    
+    user.senha = senha
 
     user.save()
 
-    return HttpResponseRedirect("/inicio")
+    return HttpResponseRedirect("/dashboard")

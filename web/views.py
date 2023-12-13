@@ -12,6 +12,13 @@ def login( request):
 
     return render(request, 'login.html', {'error': error})
 
+def primeiroLogin( request ):
+    isTokenValid = verificarSessao(request)
+    if not isTokenValid:
+        return HttpResponseRedirect(request, 'login.html')
+    
+    error = request.session.pop('error_message', "")
+    return render(request, 'redefinir_senha.html', {'error': error})
 
 def formatDate( date ):
     date = date.split('-')
