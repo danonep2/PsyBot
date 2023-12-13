@@ -25,7 +25,8 @@ urlsServer = [
     path('first-loginServer/', firstLoginServer, name='firstLoginServer'),
     path('auth/', auth, name='auth'),
     path('logout/', logoutServer, name='logout'),
-    path('criar-consulta/', criarConsulta, name='criarConsulta')
+    path('criar-consulta/', criarConsulta, name='criarConsulta'),
+    path('confirmar-consulta/', confirmarConsulta, name='confirmarConsulta')
 ]
 urlsWeb = [
     path('login/', login, name='login'),
