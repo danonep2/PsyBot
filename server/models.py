@@ -11,7 +11,7 @@ class Usuario(models.Model):
     def __str__(self):
         return self.nome
 
-class Cosultas(models.Model):
+class Consultas(models.Model):
     id = models.AutoField(primary_key=True)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     numeroConsulta = models.IntegerField(null=False)

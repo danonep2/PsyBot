@@ -1,7 +1,7 @@
 from server.utils.verificaSessao import verificarSessao
 from django.shortcuts import HttpResponseRedirect, render
 from django.utils import timezone
-from server.models import Cosultas
+from server.models import Consultas
 
 days_of_week = {
     'Sunday': 1,
@@ -34,7 +34,7 @@ def horarios( request ):
 
     print('range: ', initialDate, finalDate)
 
-    consultQuery = Cosultas.objects.filter(data__range=[
+    consultQuery = Consultas.objects.filter(data__range=[
         str(initialDate),
         str(finalDate)
     ])

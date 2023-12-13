@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.utils import timezone
 from web.controllers.horarios import days_of_week
-from server.models import Cosultas
+from server.models import Consultas
 from server.utils.verificaSessao import verificarSessao
 
 def criarConsulta(request):
@@ -17,7 +17,7 @@ def criarConsulta(request):
         return HttpResponseRedirect('/horarios')
 
     # Verificar se o usuario ja tem consulta
-    consultas = Cosultas.objects.filter(usuario=usuario)
+    consultas = Consultas.objects.filter(usuario=usuario)
     if consultas:
         request.session['msg_horario'] = '<center><p style="color: red">Você já tem uma consulta marcada!</p></center>'
         return HttpResponseRedirect('/horarios')
@@ -34,7 +34,7 @@ def criarConsulta(request):
     initial = dayOfWeek - 1
     initialDate = timezone.now().date() + timezone.timedelta(days=-initial)
 
-    consulta = Cosultas()
+    consulta = Consultas()
     consulta.usuario = usuario
     consulta.horario = hour
     consulta.numeroConsulta = 1

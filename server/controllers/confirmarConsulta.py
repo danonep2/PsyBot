@@ -1,6 +1,6 @@
 from django.shortcuts import HttpResponseRedirect
 from django.utils import timezone
-from server.models import Cosultas
+from server.models import Consultas
 from server.utils.verificaSessao import verificarSessao
 
 def confirmarConsulta( request ):
@@ -19,7 +19,7 @@ def confirmarConsulta( request ):
     presente = request.POST['presente']
     desc = request.POST['desc']
 
-    consulta = Cosultas.objects.get(id=idConsulta)
+    consulta = Consultas.objects.get(id=idConsulta)
     consulta.pendente = False
     consulta.descricao = desc
     consulta.estevePresente = bool(presente)
@@ -28,8 +28,8 @@ def confirmarConsulta( request ):
     usuario = consulta.usuario
     numeroConsulta = consulta.numeroConsulta
 
-    if remarcar == "True":
-        novaConsulta = Cosultas()
+    if remarcar == "True" and consulta.numeroConsulta <= 10:
+        novaConsulta = Consultas()
         novaConsulta.usuario = usuario
         novaConsulta.data = consulta.data + timezone.timedelta(days=7)
         novaConsulta.horario = consulta.horario

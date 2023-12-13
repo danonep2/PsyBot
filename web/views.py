@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect
-from server.models import Cosultas
+from server.models import Consultas
 from django.utils import timezone
 from server.utils.verificaSessao import verificarSessao
 
@@ -36,7 +36,7 @@ def dashboard( request ):
 
     if usuario.tipo == 'aluno':
         try:
-            consulta = Cosultas.objects.get(usuario=usuario, pendente=True)
+            consulta = Consultas.objects.get(usuario=usuario, pendente=True)
             data = {
                 'proxima_consulta':  f'''
             <table class="table table-hover">
@@ -59,7 +59,7 @@ def dashboard( request ):
 
         return render(request, 'dashboard.html', data)
     
-    consultas = Cosultas.objects.filter(pendente=True).order_by('data', 'horario')
+    consultas = Consultas.objects.filter(pendente=True).order_by('data', 'horario')
 
     response = '<center> <h1> Sem consultas Pendentes </h1> </center> <br>'
 
@@ -121,7 +121,7 @@ def confirmar( request, id ):
     user = isTokenValid
 
     try:
-        consulta = Cosultas.objects.get(id=id)
+        consulta = Consultas.objects.get(id=id)
         data = {
             'nomeAluno': consulta.usuario.nome.split()[0],
             'idConsulta': consulta.id,
