@@ -37,8 +37,8 @@ def auth( request ):
             response.set_cookie('token', novoToken)
             return response
 
-        response.set_cookie('token', novoToken)
         response = HttpResponseRedirect('/')
+        response.set_cookie('token', novoToken)
         return response
 
     except:
