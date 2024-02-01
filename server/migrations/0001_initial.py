@@ -34,7 +34,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Cosultas',
+            name='Consultas',
             fields=[
                 ('id', models.AutoField(primary_key=True, serialize=False)),
                 ('numeroConsulta', models.IntegerField()),

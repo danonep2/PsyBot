@@ -33,7 +33,24 @@ O projeto não está finalizado. Apenas algumas funcionalidades foram implemtand
 # Screenshots 📸
 <div display="inline" align="center">
 
-[ ... ]
+### Alunos
+<br>
+<img src="screenshots/img00.png" width="45%">
+<img src="screenshots/img01.png" width="45%">
+<img src="screenshots/img01.png" width="45%">
+<img src="screenshots/img01.png" width="45%">
+<img src="screenshots/img01.png" width="45%">
+<img src="screenshots/img01.png" width="45%">
+<br>
+
+## Psicológo(a)
+<br>
+<img src="screenshots/img01.png" width="45%">
+<img src="screenshots/img01.png" width="45%">
+<img src="screenshots/img01.png" width="45%">
+<img src="screenshots/img01.png" width="45%">
+
+<br>
 
 </div>
 
@@ -55,7 +72,7 @@ git clone https://github.com/danonep2/PsyBot
 	
     Comando para a criação do banco de dados:
     ```
-	python manage.py migrations
+	python manage.py migrate
     ```
 
 	Comando para a criação do super usuário:
