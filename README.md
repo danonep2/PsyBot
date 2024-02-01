@@ -37,18 +37,18 @@ O projeto não está finalizado. Apenas algumas funcionalidades foram implemtand
 <br>
 <img src="screenshots/img00.png" width="45%">
 <img src="screenshots/img01.png" width="45%">
-<img src="screenshots/img01.png" width="45%">
-<img src="screenshots/img01.png" width="45%">
-<img src="screenshots/img01.png" width="45%">
-<img src="screenshots/img01.png" width="45%">
+<img src="screenshots/img02.png" width="45%">
+<img src="screenshots/img03.png" width="45%">
+<img src="screenshots/img04.png" width="45%">
+<img src="screenshots/img05.png" width="45%">
 <br>
 
 ## Psicológo(a)
 <br>
-<img src="screenshots/img01.png" width="45%">
-<img src="screenshots/img01.png" width="45%">
-<img src="screenshots/img01.png" width="45%">
-<img src="screenshots/img01.png" width="45%">
+<img src="screenshots/img05.png" width="45%">
+<img src="screenshots/img06.png" width="45%">
+<img src="screenshots/img07.png" width="45%">
+<img src="screenshots/img08.png" width="45%">
 
 <br>
 
