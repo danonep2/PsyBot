@@ -26,7 +26,7 @@ O projeto não está finalizado. Apenas algumas funcionalidades foram implemtand
 - Ver a proxima consulta
 - Confirmar consulta (Psicologo(a))
 - Ver o horario com os nomes dos alunos (Psicologo(a))
-- Remarcar consulta caso (Psicologo(a))
+- Remarcar consulta caso seja necessário (Psicologo(a))
 
 <br>
 
